@@ -1,0 +1,28 @@
+# Print the biggest prime factor given x. This requires dividing n by all the factors, in an optimized way. This algo is O(root n)
+
+import sys
+import math
+
+def maxPrimeNum(n):
+    maxPrime = -1
+
+    while(n%2==0):
+        maxPrime = 2
+        n /= 2
+
+    #At this point n is odd. Iterate only over odd numbers
+    for i in range(3, int(math.sqrt(n)) + 1, 2):
+        while(n%i==0):
+            maxPrime = n
+            n /= i
+
+    # After dividing n by all the factors we'll get 1. If its not 1, then n is a prime number         
+    if n>2:
+        maxPrime = n 
+     
+    return int(maxPrime)    
+
+t = int(input().strip())
+for a0 in range(t):
+    n = int(input().strip())
+    print(maxPrimeNum(n))
