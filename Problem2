@@ -1,0 +1,22 @@
+# Print the sum of positive numbers of the fibonacci series till the number N. This is also a series question. the positive numbers form a series where T(n) = 4*T(n-1)+T(n-2).
+
+import sys
+
+def findNum(n):
+    a = 0
+    b = 2
+    temp = 2
+    res = 0
+    while(temp<n):
+        res += temp
+        temp = 4*b + a
+        a = b
+        b = temp
+        
+    return res     
+
+
+t = int(input().strip())
+for a0 in range(t):
+    n = int(input().strip())
+    print(findNum(n))
