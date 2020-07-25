@@ -1,0 +1,32 @@
+# This is a bit hardcoded as I've used a PRIME numbers list. The logic is that M is divisible by all numbers from 1 to N iff M is equal 
+#to the product of all prime powers p^k where p is prime and divides M, and p < N, and k is the largest integer such that p^k < N
+
+import sys
+import math
+
+PRIME = [2,3,5,7,11,13,17,19,23,29,31,37]
+
+def smallDivNum(n):
+    res = 1
+    leng = len([x for x in PRIME if x<=n])
+    #print(leng)
+    powers = [0]*leng
+    for i in range(leng):
+        #print("i : " + str(i))
+        count = 1
+        while(n>=PRIME[i]**count):
+            powers[i] = count
+            count += 1
+            #print(powers)
+    
+    for i in range(len(powers)):
+        res *= PRIME[i]**powers[i]
+
+    return res
+
+
+t = int(input().strip())
+for a0 in range(t):
+    n = int(input().strip())
+    res = smallDivNum(n)
+    print(res)
