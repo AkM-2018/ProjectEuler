@@ -1,0 +1,54 @@
+# This is not yet complete. I looked at the discussions and found naive answers. Will check if i can come up with something better
+
+import sys
+import math
+
+def palindromeNum(num,n):
+    for i in reversed(range(num+1)):
+        number = 1000*i + int(str(i)[::-1])
+        print(number)
+        if number <= 101101:
+            return 101101
+        if number > n:
+            continue
+        else:
+            result = checkMultiples(number)
+            if result == True:
+                return int(number)                     
+
+def checkMultiples(number):
+    firstMul = 1
+    secondMul = number
+
+    while(number%2==0):
+        number /= 2
+        firstMul *= 2
+        secondMul = number
+        print("FirstMul:  " + str(firstMul))
+        print("SecondMul:  " + str(secondMul))
+        if firstMul//1000>0:
+            return False
+        if firstMul//1000==0 and secondMul//1000==0:
+            return True
+
+    for i in range(3, int(math.sqrt(number)) + 1, 2):
+        while(number%i==0):
+            number /= i
+            firstMul *= i
+            secondMul = number
+            print("FirstMul:  " + str(firstMul))
+            print("SecondMul:  " + str(secondMul))
+            if firstMul//1000>0:
+                return False
+            if firstMul//1000==0 and secondMul//1000==0:
+                return True
+
+    return False    
+
+
+t = int(input().strip())
+for a0 in range(t):
+    n = int(input().strip())
+    firstThreeDigits = n//1000
+    res = palindromeNum(firstThreeDigits,n)
+    print(res)
