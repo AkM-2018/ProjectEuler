@@ -1,0 +1,11 @@
+# This was pretty easy. sum of squares has formula n*(n+1)*(2*n+1)/6 and square of sum has formula (n*(n+1)/2)**2
+
+import sys
+
+def diff(n):
+    return int((n*(n+1)/2)**2 - n*(n+1)*(2*n+1)/6)
+
+t = int(input().strip())
+for a0 in range(t):
+    n = int(input().strip())
+    print(diff(n))
