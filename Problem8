@@ -1,0 +1,27 @@
+# I used some type conversions to convert numbers and strings to each other
+
+import sys
+
+def getTheNum(num, n, k):
+    maxProduct = 0
+    for i in range(n-k+1):
+        cutNum = int(str(num)[i:i+k])
+        prod = getProduct(cutNum)
+        if prod > maxProduct:
+            maxProduct = prod
+    return maxProduct
+
+def getProduct(num):
+    arr = list(str(num))
+    res = 1
+    for i in arr:
+        res *= int(i)
+    return res        
+
+ 
+t = int(input().strip())
+for a0 in range(t):
+    n,k = input().strip().split(' ')
+    n,k = [int(n),int(k)]
+    num = input().strip()
+    print(getTheNum(num,n,k))
