@@ -1,0 +1,6 @@
+# Done by direct calculation
+
+t = int(input())
+for a0 in range(t):
+    arr = (list(str(2**int(input()))))
+    print(sum(map(int, arr)))
