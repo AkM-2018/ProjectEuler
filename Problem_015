@@ -1,0 +1,9 @@
+# this uses knowledge of permutations. from reaching from (0,0) to (m,n) we have to take m steps to the right and n steps down. so from a total of m+n steps m have to be right
+# i.e. m+nCm
+
+from math import factorial as fact
+
+t = int(input())
+for a0 in range(t):
+    m,n = map(int, input().split())
+    print(fact(m+n)//(fact(n)*fact(m))% 1000000007)
