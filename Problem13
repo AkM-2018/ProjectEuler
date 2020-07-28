@@ -1,0 +1,9 @@
+#Skipped 10,11,12. Will do it in sometime. btw this was easy
+
+t = int(input().strip())
+res = 0
+for a0 in range(t):
+    n = int(input().strip())
+    res += n
+
+print(str(res)[0:10])
