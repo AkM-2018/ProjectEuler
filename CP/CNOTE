@@ -1,0 +1,36 @@
+# Given the number and a price, check in an array if there is entry with a num>=number and cost<=price
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	long long int test;
+	cin>>test;
+	while(test--){
+	    long long int y,x,k,n;
+	    cin>>x>>y>>k>>n;
+	    long long int pages[n], price[n];
+	    for(int i=0;i<n;i++){
+	        cin>>pages[i];
+	        cin>>price[i];
+	    }
+	    if(y>=x)
+	        cout<<"LuckyChef"<<endl;
+	    else{
+	        long long int remaining = x-y;
+	        int flag = 0;
+	        for(int i=0;i<n;i++){
+	            if(remaining<=pages[i] && price[i]<=k){
+	                flag = 1;
+	                break;
+	            }
+	        }
+	        if(flag==1)
+	            cout<<"LuckyChef"<<endl;
+	        else
+	            cout<<"UnluckyChef"<<endl;
+	    }
+	    
+	}
+	return 0;
+}
