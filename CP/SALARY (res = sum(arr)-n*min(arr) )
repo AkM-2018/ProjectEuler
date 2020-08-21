@@ -1,0 +1,26 @@
+# Given an array, find the minimum number required, for increasing every element of the array excluding one of them, till all become equal.
+# Iteration continuosly is not required. Math formula is enough.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	long long int test;
+	cin>>test;
+	while(test--){
+	    long long int n;
+	    cin>>n;
+	    int arr[n];
+	    int sum = 0;
+	    int min = 10001;
+	    for(int j=0;j<n;j++){
+	        cin>>arr[j];
+	        sum += arr[j];
+	        if(arr[j]<min)
+	            min = arr[j];
+	    }
+	    int res = sum - n*min;
+	    cout<<res<<endl;
+	}
+	return 0;
+}
