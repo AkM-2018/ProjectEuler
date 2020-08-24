@@ -1,0 +1,105 @@
+############################### Input and Output ##################################
+
+// These lines at the beginning of the code makes the input/output more efficient
+ios::sync_with_stdio(0);
+cin.tie(0);
+
+Note: '\n' works faster than the endl, cuz endl always causes a flush operation
+
+// scanf and printf are alternatives to cin and cout, and are faster
+scanf("%d %d", &a, &b);
+printf("%d %d\n", a, b);
+
+// To take the whole line as input use the getline function
+string s;
+getline(cin, s);
+
+//When you dont know the input amount of data use,
+while(cin>>x){  // will take input one after the other until there is no more input left
+  //code
+}
+
+// In some contest files are used for input and output. Then use this in the beginning of the code
+// Then, write the code as usual with cin and cout
+freopen("input.txt", "r", stdin);
+freopen("output.txt", "w", stdout);
+
+################ Working with numbers ###################
+
+##### Integer numbers
+
+int is a 32bit ranging from -2^31 to 2^31-1 i.e around -2e9 to 2e9
+long long varires from -9e18 to 9e18
+
+##### Modular arithmetic:
+
+// Some problems require you to calculate final_ans % m cuz final answer is too big, you need modular operations
+(a + b) mod m = (a mod m + b mod m) mod m
+(a − b) mod m = (a mod m − b mod m) mod m
+(a · b) mod m = (a mod m · b mod m) mod m
+// Thus we can take remainders after every operation and the numbers will never become too large
+
+##### Floating point numbers:
+
+64bit double 
+80bit long double
+// if there is a required precision use this
+printf("%.9f\n", x);  // print x with 9 decimal places
+
+// Comparing float numbers can lead to errors due to precision. 
+// It is better to assume two floating numbers equal if difference b/w them is a small eps=e-9
+if (abs(a-b) < 1e-9) {
+  // a and b are equal
+}
+
+##### Shortening code:
+
+// instead of using long long many times in your code. you can use typedef like //   This is known as TYPE NAMES
+typedef long long ll;
+ll a = 123456789;  //instead of long long a, long long b etc.
+ll b = 987654321;
+cout << a*b << "\n";
+
+// Also works for complex stuff
+typedef vector<int> vi;
+typedef pair<int,int> pi;
+
+// MACROS can be used to shorten your code further.
+// for example
+
+#define F first
+#define S second
+#define PB push_back
+#define MP make_pair
+#define REP(i,a,b) for (int i = a; i <= b; i++)
+
+// this will convert 
+v.push_back(make_pair(y1,x1));
+v.push_back(make_pair(y2,x2));
+int d = v[i].first+v[i].second;
+for (int i = 1; i <= n; i++) {
+  search(i);
+}
+
+// to
+v.PB(MP(y1,x1));
+v.PB(MP(y2,x2));
+int d = v[i].F+v[i].S;
+REP(i,1,n) {
+  search(i);
+}
+
+################ Recursive algorithms ###################
+
+Covered generating subsets,
+
+
+
+
+
+
+
+
+
+
+
