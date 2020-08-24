@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define REP(i,a,b) for(int i=a;i<b;i++)
+#define PB push_back
+#define PO pop_back
+typedef vector<int> vi;
+
+vi vec;
+
+void print(vi arr){
+    int len = arr.size();
+    cout<<"{";
+    REP(i,0,len){
+        cout<<arr[i]<<",";
+    }
+    cout<<"}\n";
+}
+
+void generateSubsets(int n){
+    if(n==0){
+        print(vec);
+    }
+    else{
+        vec.PB(n);
+        generateSubsets(n-1);
+        vec.PO();
+        generateSubsets(n-1);
+    }
+}
+
+int main()
+{
+    int n;
+    cout<<"Enter the number: ";
+    cin>>n;
+    generateSubsets(n);
+}
