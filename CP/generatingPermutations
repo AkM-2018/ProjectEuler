@@ -7,6 +7,7 @@ using namespace std;
 typedef vector<int> vi;
 
 vi vec;
+vi vec2;
 int n = 3;
 bool chosen[3];
 
@@ -34,7 +35,19 @@ void generatePermutations(){
     }
 }
 
+void generatePermutations_stdlib(){
+    for(int i=0;i<n;i++){
+        vec2.PB(i);
+    }
+    do{
+        print(vec2);
+    }while(next_permutation(vec2.begin(),
+            vec2.end()));
+}
+
 int main()
 {
     generatePermutations();
+    cout<<"\n\n";
+    generatePermutations_stdlib();
 }
