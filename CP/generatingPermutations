@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define REP(i,a,b) for (int i = a; i > b; i--)
+#define PB push_back
+#define PO pop_back
+typedef vector<int> vi;
+
+vi vec;
+int n = 3;
+bool chosen[3];
+
+void print(vi arr){
+    int len = arr.size();
+    for(int i=0;i<len;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<"\n";
+}
+
+void generatePermutations(){
+    if(n==(int)vec.size()){
+        print(vec);
+    }
+    else{
+        for(int i=0;i<n;i++){
+            if(chosen[i]) continue;
+            chosen[i] = true;
+            vec.PB(i);
+            generatePermutations();
+            chosen[i] = false;
+            vec.PO();
+        }
+    }
+}
+
+int main()
+{
+    generatePermutations();
+}
