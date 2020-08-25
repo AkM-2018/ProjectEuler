@@ -1,4 +1,4 @@
-############################### Input and Output ##################################
+############################################################## Input and Output ##################################################################33
 
 // These lines at the beginning of the code makes the input/output more efficient
 ios::sync_with_stdio(0);
@@ -139,13 +139,33 @@ Basically reverse all the bits from 1 to 0 and viceversa
    7. x | (x − 1) inverts all the bits after the last one bit
    8. positive number x is a power of two exactly when x & (x − 1) = 0
 
-##### Representing sets::
+##### Representing sets:
 
+Every subset of a set {0,1,2,3...n-1} can be represented by a n bit number, whose 1 means the number is 
+included and 0 means not.
 
+Operation         Set syntax      Bit syntax
+Intersection        a ∩ b           a & b
+Union               a ∪ b           a | b
+Complement            ¯a              ~a
+Difference          a \ b           a & (~b)
 
+for ex: 
+int x = (1<<1)|(1<<3)|(1<<4)|(1<<8);
+int y = (1<<3)|(1<<6)|(1<<8)|(1<<9);
+int z = x|y; // z would be the union of x and y
 
+################################################################# Efficiency #############################################################################
 
+1 < logn < root(n) < n < nlongn < n^2 < n^3 < 2^n < n!
 
+Input size          Expected time complexity
+n ≤ 10                        O(n!)
+n ≤ 20                        O(2n)
+n ≤ 500                       O(n3)
+n ≤ 5000                      O(n2)
+n ≤ 106                 O(n log n) or O(n)
+n is large              O(1) or O(log n)
 
 
 
