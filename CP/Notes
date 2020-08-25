@@ -167,6 +167,10 @@ n ≤ 5000                      O(n2)
 n ≤ 106                 O(n log n) or O(n)
 n is large              O(1) or O(log n)
 
+Looked at maximumSubarraySum problem and 2-queens problem. 2-queens had a recursive and also a O(1) soln.
+
+################################################################# Sorting and searching #############################################################################
+
 
 
 
