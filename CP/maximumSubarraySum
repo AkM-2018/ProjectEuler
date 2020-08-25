@@ -1,0 +1,64 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class maxSubarraySum{
+private:
+    vector<int> vec;
+    int space;
+public:
+    maxSubarraySum(vector<int>);
+    void maxSum_n3();
+    void maxSum_n2();
+    void maxSum_n();
+};
+
+maxSubarraySum::maxSubarraySum(vector<int> someArr){
+    space = someArr.size();
+    for(int i=0;i<space;i++){
+        vec.push_back(someArr[i]);
+    }
+}
+
+void maxSubarraySum::maxSum_n3(){
+    int best = 0;
+    for(int a=0;a<space;a++){
+        for(int b=a;b<space;b++){
+            int sum = 0;
+            for(int i=a;i<b;i++){
+                sum += vec[i];
+            }
+            best = max(sum,best);
+        }
+    }
+    cout<<"Time complexity n^3: "<<best<<"\n";
+}
+
+void maxSubarraySum::maxSum_n2(){
+    int best = 0;
+    for(int a=0;a<space;a++){
+        int sum = 0;
+        for(int b=a;b<space;b++){
+            sum += vec[b];
+            best = max(sum, best);
+        }
+    }
+    cout<<"Time complexity n^2: "<<best<<"\n";
+}
+
+void maxSubarraySum::maxSum_n(){
+    int best = 0, sum = 0 ;
+    for(int a=0;a<space;a++){
+        sum = max(vec[a], sum+vec[a]);
+        best = max(sum, best);
+    }
+    cout<<"Time complexity n: "<<best<<"\n";
+}
+
+int main()
+{
+    vector<int> vec = {-1,2,4,-3,5,2,-5,2};
+    maxSubarraySum s1(vec);
+    s1.maxSum_n();
+    s1.maxSum_n2();
+    s1.maxSum_n3();
+}
