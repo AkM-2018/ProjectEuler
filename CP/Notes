@@ -91,7 +91,66 @@ REP(i,1,n) {
 
 ################ Recursive algorithms ###################
 
-Covered generating subsets,
+Covered generating subsets, generating permutations, n-queens
+
+################ Bit manipulation algorithms ###################
+
+Internally every int is stored as a 32bit binary
+Theres a relation between representations: signed number -x = unsigned number 2^n-x
+
+The value of int goes from 0 to 2147483647(2^31-1). Then x++ would make its value -2147483648 and further counting downwards to 0
+
+##### Bit Operations
+
+1. And operation: if both have 1, then 1 else 0
+  10110 (22)
+& 11010 (26)
+= 10010 (18)
+
+Can be used to find if a number is even(if x&1==0)(for number to be divisible by 0 2^0 should be 0) or odd(if x&1==1)
+
+2. Or operation: if one of them is 1, then 1 else 0
+
+3. Xor operation: 1 where there is exactly one 1, else 0
+  10110 (22)
+ˆ 11010 (26)
+= 01100 (12)
+
+4. Not operation(~): ~ of a number is the negative of the number + 1
+~x = −x −1  for ex: ~29 = −30
+Basically reverse all the bits from 1 to 0 and viceversa
+
+5. Bit shifts: 
+    1. left bit shift x << k appends k zero bits to the number
+        For example, 14 << 2 = 56, because 14 and 56 correspond to 1110 and 111000
+        x << k corresponds to multiplying x by 2^k
+    2. right bit shift x >> k removes the k last bits from the number
+        49 >> 3 = 6, because 49 and 6 correspond to 110001 and 110
+        x >> k corresponds to dividing x by 2k rounded down to an integer
+  
+6. Bit masks: A bit mask of the form 1 << k has a one bit in position k, and all other
+   bits are zero, so we can use such masks to access single bits of numbers
+   1. kth bit of a number is one exactly when x & (1 << k) is not zero
+   2. x | (1 << k) sets the kth bit of x to one
+   3. x & ~(1 << k) sets the kth bit of x to zero
+   4. ˆ (1 << k) inverts the kth bit of x
+   5. x & (x −1) sets the last one bit of x to zero
+   6. x & −x sets all the one bits to zero, except for the last one bit
+   7. x | (x − 1) inverts all the bits after the last one bit
+   8. positive number x is a power of two exactly when x & (x − 1) = 0
+
+##### Representing sets::
+
+
+
+
+
+
+
+
+
+
+
 
 
 
