@@ -1,0 +1,11 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int best_without_stocks = 0; int best_with_stocks = -INT_MAX;
+        for(int i : prices){
+            best_with_stocks = max(best_with_stocks, best_without_stocks - i);
+            best_without_stocks = max(best_without_stocks, best_with_stocks + i);
+        }
+        return best_without_stocks;
+    }
+};
