@@ -1,0 +1,52 @@
+// Given a number find the sum of squares digits of the number. If it reaches 1 then return true else false.
+
+// Initial solution. Used unordered_set 
+
+class Solution {
+    int f(int num){
+        int sum = 0;
+        while(num){
+            int digit = num%10;
+            num /= 10;
+            sum += digit*digit;
+        }
+        return sum;
+    }
+public:
+    bool isHappy(int n) {
+        unordered_set<int> visited;
+        while(true){
+            if(n==1)
+                return true;
+            n = f(n);
+            if(visited.count(n)==1)
+                return false;
+            visited.insert(n)
+        }
+    }
+};
+
+// Better solution. Since int has 10 digits the max number given can be 9999999999 and sum of squares is 10*9*9 = 810. 
+// Then we need to check, for numbers less than 810 what is the maximum number required to reach 1. This turns out to be 18.
+// So you can jus trun the loop for 19 iterations and return false if it hasnt turned by then
+
+class Solution {
+    int f(int num){
+        int sum = 0;
+        while(num){
+            int digit = num%10;
+            num /= 10;
+            sum += digit*digit;
+        }
+        return sum;
+    }
+public:
+    bool isHappy(int n) {
+        for(int i=0;i<19;i++){
+            if(n==1)
+                return true;
+            n = f(n);
+        }
+        return false;
+    }
+};
