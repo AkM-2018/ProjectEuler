@@ -1,0 +1,68 @@
+/**
+ * Given an unsorted array arr[] of size N, rotate it by D elements (clockwise).
+ * Input:
+ * 
+ * The first line of the input contains T denoting the number of testcases. First line of each test case contains two space separated elements, N denoting the size of the array and an integer D denoting the number size of the rotation.
+ * Subsequent line will be the N space separated array elements.
+ * 
+ * Output:
+ * For each testcase, in a new line, output the rotated array.
+ * 
+ * Example:
+ * Input:
+ * 
+ * 2                        where 2 is the total number of test cases.
+ * 5 2                      where 5 is the size of array and 2 is the rotation factor for test case 1.
+ * 1 2 3 4 5                space seperated integers represting elements of an array for test case 1.
+ * 10 3                     where 10 is the size of array and 3 is the rotation factor for test case 2.
+ * 1 2 5 3 4 6 7 8 9 10     space seperated integers represting elements of an array for test case 2.
+ * 
+ * Output:
+ * 4 5 1 2 3
+ * 8 9 10 1 2 3 4 5 6 7
+ * 
+ * Timecomplexity: O(n) where n is the size of an array.
+*/
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void rotateByOne(vector<int>* v, int len){
+    int temp = (*v)[len-1];
+    for(int i=(len-2);i>=0;i--){
+        (*v)[i+1] = (*v)[i];
+    }
+    (*v)[0] = temp;
+}
+
+void right_rotate_array(vector<int>* v, int len, int rotations){
+    while(rotations--){
+        rotateByOne(v, len);
+    }
+}
+
+int main()
+{
+    int test;
+    cin>>test;
+    while(test--){
+        int len, noRotations;
+        cin>>len>>noRotations;
+        int rotationsNeeded = noRotations%len;
+        vector<int> store;
+        vector<int>* v = &store;
+        for(int i=0;i<len;i++){
+            int input;
+            cin>>input;
+            store.push_back(input);
+        }
+        right_rotate_array(v,len,rotationsNeeded);
+
+        cout<<"Array after rotations: "<<"\n";
+        for(int i=0;i<len;i++){
+            cout<<store[i]<<" ";
+        }
+        cout<<"\n";
+    }
+}
