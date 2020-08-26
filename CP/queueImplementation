@@ -1,0 +1,78 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Queue{
+    int top, rear, len;
+    int capacity;
+    int* arr;
+};
+
+Queue* createQueue(int cap){
+    Queue* q = new Queue();
+    q->capacity = cap;
+    q->top = q->len = 0;
+    q->rear = cap-1;
+    q->arr = new int[(q->capacity*sizeof(int))];
+    return q;
+}
+
+bool isEmpty(Queue* q){
+    return q->len==0;
+}
+
+bool isFull(Queue* q){
+    return q->len == q->capacity;
+}
+
+int getTop(Queue* q){
+    if(isEmpty(q)){
+        cout<<"Queue empty!!"<<"\n";
+        return 0;
+    }
+    return q->arr[q->top];
+}
+
+int getRear(Queue* q){
+    if(isEmpty(q)){
+        cout<<"Queue empty!!"<<"\n";
+        return 0;
+    }
+    return q->arr[q->rear];
+}
+
+void enqueue(Queue* q, int num){
+    if(isFull(q)){
+        cout<<"Queue full!!"<<"\n";
+        return;
+    }
+    q->rear = (q->rear+1)%q->capacity;
+    q->arr[q->rear] = num;
+    q->len = q->len + 1;
+}
+
+void dequeue(Queue* q){
+    if(isEmpty(q)){
+        cout<<"Queue empty!!"<<"\n";
+        return;
+    }
+    q->top = (q->top + 1)%q->capacity;
+    q->len = q->len - 1;
+}
+
+void print(Queue* q){
+    for(int i=0;i<q->len;i++){
+        cout<<q->arr[i]<<" ";
+    }
+    cout<<"\n";
+}
+
+int main(){
+    Queue* que = createQueue(10);
+    enqueue(que, 10);
+    enqueue(que, 20);
+    enqueue(que, 30);
+    enqueue(que, 40);
+    print(que);
+    dequeue(que);
+    print(que);
+}
