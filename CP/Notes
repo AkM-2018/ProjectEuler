@@ -1,4 +1,4 @@
-############################################################## Input and Output ##################################################################33
+############################################################## Input and Output ##################################################################
 
 // These lines at the beginning of the code makes the input/output more efficient
 ios::sync_with_stdio(0);
@@ -171,11 +171,28 @@ Looked at maximumSubarraySum problem and 2-queens problem. 2-queens had a recurs
 
 ################################################################# Sorting and searching #############################################################################
 
+bubble sort, gets is name from the largest number going to the end like bubble rising to the surface.
+The lowest time for sorting which can be obtained by comparing cant go below nlogn
 
+##### Sorting with vectors, arrays, strings
 
+vector<int> v = {4,2,5,3,5,8,3};
+sort(v.begin(),v.end());  // ascending
+sort(v.rbegin(),v.rend());  // descending
 
+int n = 7; // array size
+int a[] = {4,2,5,3,5,8,3};
+sort(a,a+n);
 
+string s = "monkey";
+sort(s.begin(), s.end());
 
+vector<pair<int,int>> v;
+v.push_back({1,5});
+v.push_back({2,3});
+v.push_back({1,2});
+sort(v.begin(), v.end());
+// result: [(1,2),(1,5),(2,3)]
 
 
 
