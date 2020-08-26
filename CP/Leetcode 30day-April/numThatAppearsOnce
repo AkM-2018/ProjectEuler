@@ -1,0 +1,12 @@
+// Given array with elements, all of them appear twice except one. Find that one. 
+// Using bit manipulation XOR here.
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int num = 0;
+        for(int i : nums)
+            num ^= i;
+        return num;
+    }
+};
