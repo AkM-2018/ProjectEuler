@@ -1,0 +1,33 @@
+// Brute force method
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int best = 0;
+        int len = height.size();
+        for(int i=0;i<len;i++){
+            for(int j=i;j<len;j++){
+                best = max(best, min(height[i],height[j])*(j-1));
+            }
+        }
+        return best;
+    }
+};
+
+
+// Optimal method is to set two pointers, start and end.
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int best = 0;
+        int len = height.size();
+        int l = 0, r = len-1;
+        while(l<r){
+            best = max(best, min(height[l], height[r])*(r-l));
+            if(height[l]<height[r])
+                l++;
+            else
+                r--;
+        }
+        return best;
+    }
+};
