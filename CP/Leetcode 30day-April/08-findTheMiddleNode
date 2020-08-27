@@ -1,0 +1,34 @@
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* root = head;
+        int count = 1;
+        while(head->next != NULL){
+            head = head->next;
+            count++;
+        }
+        int steps = count/2;
+        while(steps--){
+            root = root->next;
+        }
+        return root;
+    }
+};
+
+// Another solution would be to keep two pointers. One of them moves twice in every step, the other moves once
+
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* A = head;
+        ListNode* B = head;
+        while(B != NULL){
+            B = B->next;
+            if(B == NULL)
+              return A;
+            A = A->next;
+            B = B->next;
+        }
+        return A;
+    }
+};
