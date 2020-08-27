@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        multiset<int> s;
+        for(int i:nums)
+            s.insert(i);
+        s.erase(val);
+        int i=0;
+        for (auto x : s) {
+            nums[i] = x;
+            i++;        
+        }
+        return s.size();        
+    }
+};
