@@ -304,10 +304,29 @@ if (m.count("aybabtu")) {
 ######################## Priority Queues
 
 Multiset which supports insertion(o(logn)) and according to the type of the queue, supports retireval(o(1)), removal(o(logn)) of either the maximum or the minimum element
+C++ sorts priority queues in decensing order. if you want the other way use: 
+this--- priority_queue<int,vector<int>,greater<int>> q;
 
+priority_queue<int> q;
+q.push(3);
+q.push(5);
+q.push(7);
+q.push(2);
+cout << q.top() << "\n"; // 7
+q.pop();
+cout << q.top() << "\n"; // 5
+q.pop();
+q.push(6);
+cout << q.top() << "\n"; // 6
+q.pop();
 
+// There was policy based sets which is skipped. These were sets which were ordered and can be indexed
 
+###### Experiments:
 
+Using sorting against sets has a great advantage. Similarily arrays are a lot faster than maps. Priority queues are faster than multisets.
+
+################################################################# Dynamic Programming #############################################################################
 
 
 
