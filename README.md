@@ -1,2 +1,2 @@
-# ProjectEuler
-This contains the solutions I wrote for ProjectEuler Questions
+# Competitive Coding
+This is my attempt of solving competitive coding questions
