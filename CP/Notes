@@ -328,10 +328,44 @@ Using sorting against sets has a great advantage. Similarily arrays are a lot fa
 
 ################################################################# Dynamic Programming #############################################################################
 
-I had forgotten about this and will continue tomorrow.
+He look at how DP is used when greedy fails. We looked a the coins problem. The key to dp is memoization. The coins problem without and with memoization
 
+int solve(int x) {
+  if (x < 0) return INF;
+  if (x == 0) return 0;
+  int best = INF;
+  for (auto c : coins) {
+    best = min(best, solve(x-c)+1);
+  }
+  return best;
+}
 
+// With memoization 
 
+int solve(int x) {
+  if (x < 0) return INF;
+  if (x == 0) return 0;
+  if (ready[x]) return value[x];
+  int best = INF;
+  for (auto c : coins) {
+    best = min(best, solve(x-c)+1);
+  }
+  ready[x] = true;
+  value[x] = best;
+  return best;
+}
+
+// there is also the iterative implementation which is used more
+
+value[0] = 0;
+for (int x = 1; x <= n; x++) {
+  value[x] = INF;
+  for (auto c : coins) {
+    if (x-c >= 0) {
+      value[x] = min(value[x], value[x-c]+1);
+    }
+  }
+}
 
 
 
