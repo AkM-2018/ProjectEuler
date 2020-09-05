@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int coinSumPermutations(vector<int> coins, int sum){
+    int countKeep[sum+1];
+    countKeep[0] = 1;
+    for(int i=1;i<=sum;i++){
+        countKeep[i] = 0;
+        for(int x:coins){
+            if(i-x>=0)
+                countKeep[i] += countKeep[i-x];
+        }
+    }
+    return countKeep[sum];
+}
+
+int main()
+{
+    vector<int> coins = {1,2};
+    int sum = 5;
+    cout<<"Number of permutations: "<<coinSumPermutations(coins, sum);
+}
