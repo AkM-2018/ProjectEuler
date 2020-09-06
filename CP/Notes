@@ -368,6 +368,57 @@ for (int x = 1; x <= n; x++) {
 }
 
 
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int k;
+    cin>>k;
+	int test;
+	cin>>test;
+	while(test--){
+	    //cout<<"\nNew test case:\n";
+	    int n; cin>>n;
+	    long long arr[n];
+	    unsigned long long tmp;
+	    vector<char> bi;
+	    long long asum=0, bsum=0; int i=n-1;
+	    long long diff = 0;
+	    int base = n;
+	    while(i>=0){
+	        //arr[i] = pow(base,k);
+	        tmp = pow(base,k);
+	        if(diff>=0){
+	            //bsum += arr[i];
+	            diff -= tmp;
+	            bi.push_back('1');
+	        }
+	        else if(diff<0){
+	            //asum += arr[i];
+	            diff += tmp;
+	            bi.push_back('0');
+	        }
+	        i--;base--;
+	        
+	       // for(int r=0;r<n;r++){
+    	   //     cout<<arr[r]<<" ";
+    	   // }
+    	   // cout<<"\n";
+	        
+	       // for(int r=0;r<n;r++){
+    	   //     cout<<bi[r]<<" ";
+    	   // }
+    	   // cout<<"\n";
+	    }
+	    cout<<abs(diff)<<"\n";
+	    reverse(bi.begin(),bi.end());
+	    for(int i=0;i<n;i++){
+	        cout<<bi[i];
+	    }
+	    cout<<"\n";
+	}
+	return 0;
+}
 
 
 
