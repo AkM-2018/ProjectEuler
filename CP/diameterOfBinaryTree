@@ -1,0 +1,15 @@
+class Solution {
+    pair<int, int> dfs(TreeNode* root){
+        if(root==NULL)
+            return {0,0};
+        pair<int,int> l = dfs(root->left);
+        pair<int,int> r = dfs(root->right);
+        
+        int diam = max({l.first, r.first, l.second+r.second});
+        return {diam, 1+max(l.second, r.second)};
+    }
+public:
+    int diameterOfBinaryTree(TreeNode* root) {
+        return dfs(root).first;
+    }
+};
