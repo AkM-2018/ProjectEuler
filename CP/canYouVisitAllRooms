@@ -1,0 +1,29 @@
+class Solution {
+public:
+    bool canVisitAllRooms(vector<vector<int>>& rooms) {
+        int len = rooms.size();
+        vector<bool> seen(len, false);
+        seen[0] = true;
+        
+        stack<int> keys;
+        keys.push(0);
+        
+        while(!keys.empty()){
+            int curr = keys.top();
+            keys.pop();
+            for(auto new_key: rooms[curr]){
+                if(!seen[new_key]){
+                    seen[new_key] = true;
+                    keys.push(new_key);
+                }
+            }
+        }
+        
+        
+        for(auto x:seen){
+            if(!x)
+                return false;
+        }
+        return true;
+    }
+};
