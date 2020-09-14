@@ -1,3 +1,4 @@
+ (res = sum(arr)-n*min(arr) )
 # Given an array, find the minimum number required, for increasing every element of the array excluding one of them, till all become equal.
 # Iteration continuosly is not required. Math formula is enough.
 
