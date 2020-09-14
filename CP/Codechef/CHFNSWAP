@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int test; cin>>test;
+	while(test--){
+	    long n; cin>>n;
+	    long sum = n*(n+1)/2;
+	    if(sum%2 == 0){
+	        long x = (-1+sqrt(1+4*sum))/2;
+	        long res = n - x;
+	        long left = x*(x+1)/2;
+	        long right = sum - left;
+	        if(right == left){
+	            res += x*(x-1)/2;
+	            res += (n-x-1)*(n-x)/2;
+	        }
+	        cout<<res<<"\n";
+	    }
+	    else{
+	        cout<<0<<"\n";
+	    }
+	}
+	return 0;
+}
