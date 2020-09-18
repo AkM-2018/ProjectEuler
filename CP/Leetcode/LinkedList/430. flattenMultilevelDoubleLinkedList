@@ -1,0 +1,22 @@
+class Solution {
+public:
+    Node* flatten(Node* head) {
+        Node* res = head;
+        while(head){
+            if(head->child){
+                Node* nextptr = head->next;
+                head->next = head->child;
+                head->next->prev = head;
+                head->child = NULL;
+                Node* childNode = head->next;
+                while(childNode->next){
+                    childNode = childNode->next;
+                }
+                childNode->next = nextptr;
+                if(nextptr) nextptr->prev = childNode;
+            }
+            head = head->next;
+        }
+        return res;
+    }
+};
