@@ -7,3 +7,4 @@
 * 617: Merge two binary trees
 * 111: Return minimum depth of the binary tree
 * 101: Return if the tree is symmetric
+* 114: Flatten binary tree to linked list
