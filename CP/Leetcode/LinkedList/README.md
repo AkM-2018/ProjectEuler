@@ -5,3 +5,4 @@
 * 21: Merge two sorted lists in sorted order
 * 206: Reverse a linked list
 * 430: Flatten a multilevel(Node can have a child Node) linked list
+* 160: Intersection of 2 linked lists
